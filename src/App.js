@@ -3,6 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import FoodDetail from "./Components/FoodDetail/FoodDetail";
 import Home from "./Components/Home/Home";
+import app from "./firebase.init";
+import { getAuth } from "firebase/auth";
+const auth = getAuth(app);
 
 function App() {
   return (
