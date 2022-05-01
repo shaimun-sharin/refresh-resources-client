@@ -1,8 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Food.css";
 
 const Food = ({ food }) => {
-  const { name, picture, description, price, quantity } = food;
+  const { name, picture, description, price, quantity, _id } = food;
+  const navigate = useNavigate();
+  const handleNavigation = (id) => {
+    navigate(`/food/${id}`);
+  };
+
   return (
     <div>
       <div className="card h-100 food">
@@ -13,13 +19,16 @@ const Food = ({ food }) => {
           alt="..."
         />
         <div className="card-body">
-          <h3 class="card-title">{name}</h3>
-          <p className="card-text">{description}</p>
-          <p className="card-text">{price}</p>
-          <h6 className="card-text">(in Dozens){quantity}</h6>
+          <h3 class="card-title">Product Name-{name}</h3>
+          <p className="card-text">About -{description}</p>
+          <p className="card-text">Price-{price}</p>
+          <h6 className="card-text">Quantity(in Dozens)-{quantity}</h6>
         </div>
         <div className="card-footer">
-          <button className="btn btn-success w-50 m-auto text-center">
+          <button
+            onClick={() => handleNavigation(_id)}
+            className="btn btn-success w-50 m-auto text-center"
+          >
             Update Stock
           </button>
         </div>
