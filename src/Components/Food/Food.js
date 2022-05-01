@@ -7,7 +7,7 @@ const Food = ({ food }) => {
     <div>
       <div className="card h-100 food">
         <img
-          className="h-50 w-50 mx-auto rounded"
+          className="w-50 h-50 mx-auto rounded mt-2"
           src={picture}
           class="card-img-top"
           alt="..."
@@ -19,7 +19,9 @@ const Food = ({ food }) => {
           <h6 className="card-text">(in Dozens){quantity}</h6>
         </div>
         <div className="card-footer">
-          <small className="text-muted">Last updated 3 mins ago</small>
+          <button className="btn btn-success w-50 m-auto text-center">
+            Update Stock
+          </button>
         </div>
       </div>
     </div>
