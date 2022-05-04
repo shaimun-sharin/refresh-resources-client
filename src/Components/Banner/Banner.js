@@ -4,9 +4,9 @@ import banner from "../../../src/banner.jpg";
 
 const Banner = () => {
   return (
-    <div className="banner ">
-      <div>
-        <h1 className="animate__animated animate__rotateInDownRight  text-white">
+    <div className="banner container m-4 p-4 ">
+      <div className="banner-text">
+        <h1 className="animate__animated animate__backInDown  text-white">
           Welcome to <span className="text-danger">Refresh Resources!</span>
         </h1>
         <p className="text-white animate__animated animate__rotateInDownLeft animate__delay-2s">
@@ -18,7 +18,7 @@ const Banner = () => {
       </div>
       <div>
         <img
-          className="animate__animated animate__rollIn animate__delay-3s"
+          className="animate__animated animate__rollIn animate__delay-3s banner-img"
           src={banner}
           alt=""
         />

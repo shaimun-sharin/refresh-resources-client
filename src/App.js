@@ -7,6 +7,7 @@ import Home from "./Components/Home/Home";
 // import { getAuth } from "firebase/auth";
 import NotFound from "./Components/NotFound/NotFound";
 import Header from "./Components/Shared/Header/Header";
+import SignIn from "./Components/SignIn/SignIn";
 // const auth = getAuth(app);
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
 
         <Route path="/food/:id" element={<FoodDetail></FoodDetail>}></Route>
+        <Route path="/signIn" element={<SignIn></SignIn>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       ;

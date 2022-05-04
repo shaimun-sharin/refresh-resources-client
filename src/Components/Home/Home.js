@@ -3,7 +3,7 @@ import Foods from "../Foods/Foods";
 
 const Home = () => {
   return (
-    <div>
+    <div id="home">
       <Banner></Banner>
       <Foods></Foods>
     </div>

@@ -1,16 +1,19 @@
 import React from "react";
-import img404 from "../../img404.gif";
+import { Link } from "react-router-dom";
+
+import "./NotFound.css";
 
 const NotFound = () => {
   return (
-    <div>
-      <h1 className="text-danger text-center">Something went wrong!</h1>
-      <img className="w-50 rounded mx-auto d-block" src={img404} alt="" />
+    <div className="notFound w-100 mx-auto h-100">
+      <h1 className="animate__animated animate__shakeX p-4  text-danger text-center">
+        404! page not found
+      </h1>
       <br />
       <button className="btn btn-success mx-auto d-block text-center w-25">
-        <a className="text-decoration-none text-white" href="/">
+        <Link className="text-decoration-none text-white" to="/home">
           Go to Home Page
-        </a>
+        </Link>
       </button>
     </div>
   );

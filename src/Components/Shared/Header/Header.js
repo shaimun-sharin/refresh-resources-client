@@ -1,21 +1,25 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div>
+    <div className="container p-4">
       <Navbar
         collapseOnSelect
         expand="lg"
-        bg="success"
-        sticky="top"
+        bg="dark"
         variant="dark"
+        sticky="top"
       >
         <Container>
-          <Navbar.Brand href="#">Refresh-resources</Navbar.Brand>
+          <Navbar.Brand>Refresh-resources</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
+              <Nav.Link as={Link} to="/home">
+                Home
+              </Nav.Link>
               <Nav.Link href="home#products">Products</Nav.Link>
               <Nav.Link href="#pricing">Pricing</Nav.Link>
               <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
@@ -33,7 +37,9 @@ const Header = () => {
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
+              <Nav.Link as={Link} to="/signIn">
+                Sign In
+              </Nav.Link>
               <Nav.Link eventKey={2} href="#memes">
                 Dank memes
               </Nav.Link>

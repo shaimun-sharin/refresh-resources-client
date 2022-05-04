@@ -1,6 +1,25 @@
-@import "animate.css";
+
 .banner {
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    background-color: black;
+  
 }
+.banner-img {
+    margin: 5% 2%;
+}
+@media only screen and (max-width: 600px) {
+    .banner {
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        width: 100%;
+    }
+    .banner-img {
+        width: 75%;
+        margin: auto;
+    }
+    .banner-text {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+  }
