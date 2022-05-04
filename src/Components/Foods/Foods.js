@@ -10,10 +10,13 @@ const Foods = () => {
       .then((data) => setFoods(data));
   }, []);
   return (
-    <div className="foods">
-      {foods.map((food) => (
-        <Food key={food._id} food={food}></Food>
-      ))}
+    <div id="products">
+      <h1 className="text-center text-white p-4">Available Products</h1>
+      <div className="foods">
+        {foods.map((food) => (
+          <Food key={food._id} food={food}></Food>
+        ))}
+      </div>
     </div>
   );
 };

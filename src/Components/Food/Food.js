@@ -13,7 +13,7 @@ const Food = ({ food }) => {
     <div>
       <div className="card h-100 food">
         <img
-          className="w-50 h-50 mx-auto rounded mt-2"
+          className="w-50 img-fluid d-block h-50 mx-auto rounded mt-2"
           src={picture}
           class="card-img-top"
           alt="..."
