@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Button, Form } from "react-bootstrap";
 
 const SignIn = () => {
-  const emailRef = useRef("");
+  // const emailRef = useRef("");
   return (
     <div>
       <div>
