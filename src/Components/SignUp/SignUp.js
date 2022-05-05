@@ -1,12 +1,13 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
-const SignIn = () => {
+
+const SignUp = () => {
   const navigate = useNavigate();
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
   if (user) {
     navigate("/home");
   }
@@ -20,12 +21,13 @@ const SignIn = () => {
       </div>
     );
   }
-
-  const handleSignIn = (event) => {
+  const handleSignUp = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
+    console.log(email);
     const password = event.target.password.value;
-    signInWithEmailAndPassword(email, password);
+    console.log(password);
+    createUserWithEmailAndPassword(email, password);
   };
   return (
     <div>
@@ -33,7 +35,7 @@ const SignIn = () => {
         <h1 className="text-info text-center">Use Credintials to Sign In</h1>
       </div>
       <div>
-        <Form onSubmit={handleSignIn} className="w-50 mx-auto">
+        <Form onSubmit={handleSignUp} className="w-50 mx-auto">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label className="text-white">Email address</Form.Label>
             <Form.Control name="email" type="email" placeholder="Enter email" />
@@ -49,7 +51,7 @@ const SignIn = () => {
           </Form.Group>
 
           <Button variant="outline-info" type="submit">
-            Sign In
+            Sign Up
           </Button>
         </Form>
       </div>
@@ -57,4 +59,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;
