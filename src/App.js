@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
+import AddFood from "./Components/AddFood/AddFood";
 import FoodDetail from "./Components/FoodDetail/FoodDetail";
 import Home from "./Components/Home/Home";
 import Manageinventory from "./Components/ManageInventory/Manageinventory";
@@ -26,6 +27,14 @@ function App() {
           element={
             <RequireAuth>
               <FoodDetail></FoodDetail>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/addFood"
+          element={
+            <RequireAuth>
+              <AddFood></AddFood>
             </RequireAuth>
           }
         ></Route>

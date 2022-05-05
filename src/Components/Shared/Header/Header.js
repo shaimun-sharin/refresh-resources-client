@@ -45,7 +45,13 @@ const Header = () => {
                     my items
                   </button>
                   <button className="btn btn-outline-success mr-2">
-                    manage items
+                    <Link
+                      className="text-decoration-none text-white"
+                      to="/manageInventory"
+                    >
+                      {" "}
+                      Manage Items{" "}
+                    </Link>
                   </button>
                   )
                 </>
