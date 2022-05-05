@@ -9,7 +9,7 @@ import Socials from "../Socials/Socials";
 const SignUp = () => {
   const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   if (user) {
     navigate("/home");
   }

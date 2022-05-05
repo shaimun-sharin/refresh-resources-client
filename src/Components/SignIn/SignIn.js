@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
 import Socials from "../Socials/Socials";
@@ -9,12 +16,17 @@ const SignIn = () => {
   const navigate = useNavigate();
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
   const location = useLocation();
+  const emailRef = useRef("");
+  const passRef = useRef("");
   let from = location.state?.from?.pathname || "/";
   if (user) {
     navigate(from, { replace: true });
   }
-  if (loading) {
+  if (loading || sending) {
     return <Loading></Loading>;
   }
   if (error) {
@@ -27,9 +39,15 @@ const SignIn = () => {
 
   const handleSignIn = (event) => {
     event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
+    const email = emailRef.current.value;
+    const password = passRef.current.value;
     signInWithEmailAndPassword(email, password);
+  };
+  const resetPassword = async () => {
+    const email = emailRef.current.value;
+    console.log(email);
+    await sendPasswordResetEmail(email);
+    toast("Sent email");
   };
   return (
     <div className="animate__animated animate__backInUp border border-2 w-50 mx-auto">
@@ -40,12 +58,18 @@ const SignIn = () => {
         <Form onSubmit={handleSignIn} className="w-50 mx-auto">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label className="text-white">Email address</Form.Label>
-            <Form.Control name="email" type="email" placeholder="Enter email" />
+            <Form.Control
+              ref={emailRef}
+              name="email"
+              type="email"
+              placeholder="Enter email"
+            />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label className="text-white">Password</Form.Label>
             <Form.Control
+              ref={passRef}
               name="password"
               type="password"
               placeholder="Password"
@@ -61,7 +85,17 @@ const SignIn = () => {
               Sign Up page
             </Link>
           </p>
+          <p>
+            Forget Password?
+            <button
+              className="btn btn-link text-white pe-auto text-decoration-none"
+              onClick={resetPassword}
+            >
+              Reset Password
+            </button>
+          </p>
           <Socials></Socials>
+          <ToastContainer />
         </Form>
       </div>
     </div>
