@@ -53,7 +53,7 @@ const SignIn = () => {
     }
   };
   return (
-    <div className="signIn-form animate__animated animate__backInUp border border-2 w-50 mx-auto">
+    <div className="signIn-form animate__animated animate__backInUp  w-50 mx-auto">
       <div>
         <h1 className="text-info text-center">Use Credintials to Sign In</h1>
       </div>
@@ -89,10 +89,10 @@ const SignIn = () => {
               Sign Up page
             </Link>
           </p>
-          <p>
+          <p className="text-white">
             Forget Password?
             <button
-              className="btn btn-link text-white pe-auto text-decoration-none"
+              className="btn btn-link mb-2 text-danger pe-auto text-decoration-none"
               onClick={resetPassword}
             >
               Reset Password

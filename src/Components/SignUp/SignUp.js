@@ -30,7 +30,7 @@ const SignUp = () => {
     createUserWithEmailAndPassword(email, password);
   };
   return (
-    <div className="animate__animated animate__backInDown border border-2 w-50 mx-auto">
+    <div className="animate__animated animate__backInDown  w-50 mx-auto">
       <div>
         <h1 className="text-success text-center">Sign Up for free</h1>
       </div>
@@ -59,12 +59,11 @@ const SignUp = () => {
           </Button>
           <p className="text-white">
             Already An User? Go Back to
-            <Link
-              className="border border-1 border-success p-2 rounded text-decoration-none text-white"
-              to="/signIn"
-            >
-              Sign In page
-            </Link>
+            <button className="btn btn-outline-success ">
+              <Link className="text-decoration-none text-white" to="/signIn">
+                Sign In page
+              </Link>
+            </button>
           </p>
           <Socials></Socials>
         </Form>

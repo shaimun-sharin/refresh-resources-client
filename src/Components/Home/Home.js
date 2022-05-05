@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Banner from "../Banner/Banner";
 import Foods from "../Foods/Foods";
 
@@ -6,6 +7,11 @@ const Home = () => {
     <div id="home">
       <Banner></Banner>
       <Foods></Foods>
+      <button className="btn btn-danger d-block w-25 mt-4 m-auto">
+        <Link className="text-decoration-none text-white" to="/manageInventory">
+          Manage Inventory
+        </Link>
+      </button>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import FoodDetail from "./Components/FoodDetail/FoodDetail";
 import Home from "./Components/Home/Home";
+import Manageinventory from "./Components/ManageInventory/Manageinventory";
 // import app from "./firebase.init";
 // import { getAuth } from "firebase/auth";
 import NotFound from "./Components/NotFound/NotFound";
@@ -30,6 +31,10 @@ function App() {
         ></Route>
         <Route path="/signIn" element={<SignIn></SignIn>}></Route>
         <Route path="/signUp" element={<SignUp></SignUp>}></Route>
+        <Route
+          path="/manageInventory"
+          element={<Manageinventory></Manageinventory>}
+        ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       ;
