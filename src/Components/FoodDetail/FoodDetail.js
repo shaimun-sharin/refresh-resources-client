@@ -21,8 +21,11 @@ const FoodDetail = () => {
         />
         <div class="card-body">
           <h3 class="card-title">Name-{food.name}</h3>
-          <p class="card-text">Price-{food.price}</p>
-          <p class="card-text">Supplier Name-{food.supplierName}</p>
+          <h4 class="card-text">Price-{food.price}</h4>
+          <h5 class="card-text">Quantity(in Dozens)-{food.quantity}</h5>
+          <p class="card-text">Description-{food.description}</p>
+
+          <h6 class="card-text">Supplier Name-{food.supplierName}</h6>
           <button className="btn btn-danger">Delivered</button>
         </div>
       </div>
