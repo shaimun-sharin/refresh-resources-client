@@ -1,9 +1,10 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
+import Socials from "../Socials/Socials";
 const SignIn = () => {
   const navigate = useNavigate();
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -54,6 +55,13 @@ const SignIn = () => {
           <Button className="mb-4" variant="outline-info" type="submit">
             Sign In
           </Button>
+          <p className="text-white">
+            Are You New Here? Go to{" "}
+            <Link className="text-decoration-none text-info" to="/signUp">
+              Sign Up page
+            </Link>
+          </p>
+          <Socials></Socials>
         </Form>
       </div>
     </div>

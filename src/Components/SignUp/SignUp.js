@@ -1,9 +1,10 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
+import Socials from "../Socials/Socials";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -56,6 +57,16 @@ const SignUp = () => {
           <Button className="mb-4" variant="outline-success" type="submit">
             Sign Up
           </Button>
+          <p className="text-white">
+            Already An User? Go Back to
+            <Link
+              className="border border-1 border-success p-2 rounded text-decoration-none text-white"
+              to="/signIn"
+            >
+              Sign In page
+            </Link>
+          </p>
+          <Socials></Socials>
         </Form>
       </div>
     </div>

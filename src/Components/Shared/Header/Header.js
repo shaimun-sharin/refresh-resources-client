@@ -54,9 +54,6 @@ const Header = () => {
                   Sign In
                 </Nav.Link>
               )}
-              <Nav.Link as={Link} to="/signUp">
-                Sign Up
-              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
