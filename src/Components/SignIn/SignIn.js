@@ -1,14 +1,16 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 const SignIn = () => {
   const navigate = useNavigate();
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
   if (user) {
-    navigate("/home");
+    navigate(from, { replace: true });
   }
   if (loading) {
     return <p className="text-white">Loading...</p>;

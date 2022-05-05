@@ -6,6 +6,7 @@ import Home from "./Components/Home/Home";
 // import app from "./firebase.init";
 // import { getAuth } from "firebase/auth";
 import NotFound from "./Components/NotFound/NotFound";
+import RequireAuth from "./Components/RequireAuth/RequireAuth";
 import Header from "./Components/Shared/Header/Header";
 import SignIn from "./Components/SignIn/SignIn";
 import SignUp from "./Components/SignUp/SignUp";
@@ -19,7 +20,14 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
 
-        <Route path="/food/:id" element={<FoodDetail></FoodDetail>}></Route>
+        <Route
+          path="/food/:id"
+          element={
+            <RequireAuth>
+              <FoodDetail></FoodDetail>
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/signIn" element={<SignIn></SignIn>}></Route>
         <Route path="/signUp" element={<SignUp></SignUp>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
