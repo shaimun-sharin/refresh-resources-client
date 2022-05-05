@@ -8,7 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-
+import "./SignIn.css";
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
 import Socials from "../Socials/Socials";
@@ -45,12 +45,15 @@ const SignIn = () => {
   };
   const resetPassword = async () => {
     const email = emailRef.current.value;
-    console.log(email);
-    await sendPasswordResetEmail(email);
-    toast("Sent email");
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast("Sent email");
+    } else {
+      toast("please enter an email first");
+    }
   };
   return (
-    <div className="animate__animated animate__backInUp border border-2 w-50 mx-auto">
+    <div className="signIn-form animate__animated animate__backInUp border border-2 w-50 mx-auto">
       <div>
         <h1 className="text-info text-center">Use Credintials to Sign In</h1>
       </div>
@@ -63,6 +66,7 @@ const SignIn = () => {
               name="email"
               type="email"
               placeholder="Enter email"
+              required
             />
           </Form.Group>
 
