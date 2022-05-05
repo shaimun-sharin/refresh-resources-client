@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import Loading from "../Loading/Loading";
 const SignIn = () => {
   const navigate = useNavigate();
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -13,12 +14,12 @@ const SignIn = () => {
     navigate(from, { replace: true });
   }
   if (loading) {
-    return <p className="text-white">Loading...</p>;
+    return <Loading></Loading>;
   }
   if (error) {
     return (
       <div>
-        <p>Error: {error.message}</p>
+        <h1 className="text-danger text-center">Error: {error.message}</h1>
       </div>
     );
   }
@@ -30,7 +31,7 @@ const SignIn = () => {
     signInWithEmailAndPassword(email, password);
   };
   return (
-    <div>
+    <div className="animate__animated animate__backInUp border border-2 w-50 mx-auto">
       <div>
         <h1 className="text-info text-center">Use Credintials to Sign In</h1>
       </div>
@@ -50,7 +51,7 @@ const SignIn = () => {
             />
           </Form.Group>
 
-          <Button variant="outline-info" type="submit">
+          <Button className="mb-4" variant="outline-info" type="submit">
             Sign In
           </Button>
         </Form>
