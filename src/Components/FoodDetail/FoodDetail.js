@@ -12,11 +12,10 @@ const FoodDetail = () => {
   });
   return (
     <div>
-      <div class="card w-25 mx-auto">
+      <div style={{ width: "18rem" }} class="card  mx-auto">
         <img
-          className="w-25 mx-auto"
+          className="card-img-top w-50 mx-auto"
           src={food.picture}
-          class="card-img-top"
           alt="..."
         />
         <div class="card-body">

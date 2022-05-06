@@ -1,6 +1,9 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
@@ -10,24 +13,29 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [updateProfile, updating, errorUpdate] = useUpdateProfile(auth);
   if (user) {
-    navigate("/home");
+    console.log("user", user);
   }
-  if (loading) {
+  if (loading || updating) {
     return <Loading></Loading>;
   }
-  if (error) {
+  if (error || errorUpdate) {
     return (
       <div>
         <h1 className="text-danger text-center">Error: {error.message}</h1>
       </div>
     );
   }
-  const handleSignUp = (event) => {
+  const handleSignUp = async (event) => {
     event.preventDefault();
+    const name = event.target.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    createUserWithEmailAndPassword(email, password);
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
+
+    navigate("/home");
   };
   return (
     <div className="animate__animated animate__backInDown  w-50 mx-auto">
@@ -38,15 +46,27 @@ const SignUp = () => {
         <Form onSubmit={handleSignUp} className="w-50 mx-auto">
           <Form.Group className="mb-3" controlId="formBasicText">
             <Form.Label className="text-white">Name</Form.Label>
-            <Form.Control name="name" type="text" placeholder="Enter name" />
+            <Form.Control
+              required
+              name="name"
+              type="text"
+              placeholder="Enter name"
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label className="text-white">Email address</Form.Label>
-            <Form.Control name="email" type="email" placeholder="Enter email" />
+            <Form.Control
+              required
+              name="email"
+              type="email"
+              placeholder="Enter email"
+            />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label className="text-white">Password</Form.Label>
+            <Form.Label required className="text-white">
+              Password
+            </Form.Label>
             <Form.Control
               name="password"
               type="password"

@@ -5,6 +5,7 @@ import AddFood from "./Components/AddFood/AddFood";
 import FoodDetail from "./Components/FoodDetail/FoodDetail";
 import Home from "./Components/Home/Home";
 import Manageinventory from "./Components/ManageInventory/Manageinventory";
+import MyItems from "./Components/MyItems/MyItems";
 // import app from "./firebase.init";
 // import { getAuth } from "firebase/auth";
 import NotFound from "./Components/NotFound/NotFound";
@@ -40,9 +41,14 @@ function App() {
         ></Route>
         <Route path="/signIn" element={<SignIn></SignIn>}></Route>
         <Route path="/signUp" element={<SignUp></SignUp>}></Route>
+        <Route path="/myItems" element={<MyItems></MyItems>}></Route>
         <Route
           path="/manageInventory"
-          element={<Manageinventory></Manageinventory>}
+          element={
+            <RequireAuth>
+              <Manageinventory></Manageinventory>
+            </RequireAuth>
+          }
         ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

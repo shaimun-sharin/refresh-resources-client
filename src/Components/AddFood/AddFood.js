@@ -18,6 +18,7 @@ const AddFood = () => {
         console.log(result);
       });
   };
+
   return (
     <div className="w-50 mx-auto">
       <h2 className="text-warning text-center">
@@ -56,6 +57,12 @@ const AddFood = () => {
           placeholder="Photo URL"
           type="text"
           {...register("picture")}
+        />
+        <input
+          className="mb-4"
+          placeholder="Email address"
+          type="email"
+          {...register("email")}
         />
         <input
           className="bg-success text-white"

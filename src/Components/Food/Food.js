@@ -3,25 +3,30 @@ import { useNavigate } from "react-router-dom";
 import "./Food.css";
 
 const Food = ({ food }) => {
-  const { name, picture, description, price, quantity, _id } = food;
+  const { name, picture, description, price, quantity, _id, supplierName } =
+    food;
   const navigate = useNavigate();
   const handleNavigation = (id) => {
     navigate(`/food/${id}`);
   };
 
   return (
-    <div>
-      <div className="card h-100 food">
+    <div className="g-4 col-sm-12 col-md-6 col-lg-4">
+      <div style={{ width: "18rem" }} className="card  food">
         <img
-          className="w-50 img-fluid d-block h-50 mx-auto rounded mt-2"
+          className="card-img-top img rounded w-50 mx-auto"
           src={picture}
-          class="card-img-top"
           alt="..."
         />
         <div className="card-body">
-          <h3 class="card-title">Product Name-{name}</h3>
+          <h3 class="card-title">
+            Product Name- <span className="text-danger">{name}</span>
+          </h3>
           <p className="card-text">About -{description}</p>
-          <p className="card-text">Price-{price}</p>
+          <h4 className="card-text text-primary">
+            Supplied By -{supplierName}
+          </h4>
+          <h5 className="card-text">Price-{price}</h5>
           <h6 className="card-text">Quantity(in Dozens)-{quantity}</h6>
         </div>
         <div className="card-footer">

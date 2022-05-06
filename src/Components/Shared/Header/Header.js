@@ -21,7 +21,7 @@ const Header = () => {
         variant="dark"
       >
         <Container>
-          <Navbar.Brand>Refresh-resources</Navbar.Brand>
+          <Navbar.Brand>Refresh-Resources</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -42,15 +42,19 @@ const Header = () => {
                   </button>
                   <br />
                   <button className="btn btn-outline-success mr-2">
-                    my items
+                    <Link
+                      className="text-decoration-none text-white"
+                      to="/myItems"
+                    >
+                      My Items
+                    </Link>
                   </button>
                   <button className="btn btn-outline-success mr-2">
                     <Link
                       className="text-decoration-none text-white"
                       to="/manageInventory"
                     >
-                      {" "}
-                      Manage Items{" "}
+                      Manage Items
                     </Link>
                   </button>
                   )

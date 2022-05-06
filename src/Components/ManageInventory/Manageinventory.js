@@ -1,3 +1,5 @@
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -15,7 +17,7 @@ const Manageinventory = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           const remaining = foods.filter((food) => food._id !== id);
           setFoods(remaining);
         });
@@ -26,26 +28,34 @@ const Manageinventory = () => {
       <h1 className="text-center text-success p-4">Inventory</h1>
       <div>
         <Table className="table-danger container" bordered>
-          <thead>
+          <thead className="text-center">
             <tr>
               <th>Product Name</th>
               <th>Price</th>
               <th>Quantity</th>
+
               <th>Delete Item</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-center">
             {foods.map((food) => (
               <tr>
-                <td>{food.name}</td>
-                <td>{food.price}</td>
-                <td>{food.quantity}</td>
+                <td>
+                  <h6>{food.name}</h6>
+                </td>
+                <td>
+                  <h6>{food.price}</h6>
+                </td>
+                <td>
+                  <h6>{food.quantity}</h6>
+                </td>
+
                 <td>
                   <button
                     onClick={() => handleDelete(food._id)}
-                    className="btn btn-danger"
+                    className="btn btn-danger btn-sm d-block mx-auto"
                   >
-                    Delete X
+                    <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>
                   </button>
                 </td>
               </tr>
