@@ -9,7 +9,7 @@ const Foods = () => {
   const foodSlice = newFood.slice(0, 6);
   return (
     <div id="products">
-      <h1 className="text-center text-white p-4">Available Products</h1>
+      <h1 className="text-center text-white p-4 mb-4">Available Products</h1>
       <div className="foods">
         {foodSlice.map((food) => (
           <Food key={food._id} food={food}></Food>

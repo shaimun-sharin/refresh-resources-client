@@ -5,9 +5,11 @@ import {
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
 import Socials from "../Socials/Socials";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -29,11 +31,13 @@ const SignUp = () => {
   }
   const handleSignUp = async (event) => {
     event.preventDefault();
-    const name = event.target.value;
+    const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
     await createUserWithEmailAndPassword(email, password);
+
     await updateProfile({ displayName: name });
+    toast("Created and updated user");
 
     navigate("/home");
   };
@@ -86,6 +90,7 @@ const SignUp = () => {
             </button>
           </p>
           <Socials></Socials>
+          <ToastContainer />
         </Form>
       </div>
     </div>
