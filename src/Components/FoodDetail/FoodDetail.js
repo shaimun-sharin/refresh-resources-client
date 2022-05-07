@@ -5,7 +5,7 @@ const FoodDetail = () => {
   const { id } = useParams();
   const [food, setFood] = useState({});
   useEffect(() => {
-    const url = `http://localhost:5000/food/${id}`;
+    const url = `https://hidden-plains-01721.herokuapp.com/food/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setFood(data));

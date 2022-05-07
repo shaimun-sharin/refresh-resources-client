@@ -1,13 +1,15 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AddFood = () => {
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data, e) => {
     console.log(data);
-    const url = "http://localhost:5000/food";
+    const url = "https://hidden-plains-01721.herokuapp.com/food";
     fetch(url, {
       method: "POST",
       headers: {
@@ -22,6 +24,7 @@ const AddFood = () => {
           position: toast.POSITION.TOP_CENTER,
         });
         e.target.reset();
+        navigate("/manageInventory");
       });
   };
 

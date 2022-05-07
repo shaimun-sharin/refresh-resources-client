@@ -11,7 +11,7 @@ const Manageinventory = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("are you sure?");
     if (proceed) {
-      const url = `http://localhost:5000/food/${id}`;
+      const url = `https://hidden-plains-01721.herokuapp.com/food/${id}`;
       fetch(url, {
         method: "DELETE",
       })

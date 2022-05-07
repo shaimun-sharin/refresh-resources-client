@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import Loading from "../Loading/Loading";
 
 const MyItems = () => {
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   const [items, setItems] = useState([]);
 
   useEffect(() => {
     const email = user?.email;
     console.log(email);
-    const url = `http://localhost:5000/food?email=${email}`;
+    const url = `https://hidden-plains-01721.herokuapp.com/food?email=${email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItems(data));

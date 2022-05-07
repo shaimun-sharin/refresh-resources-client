@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const useFoods = () => {
   const [foods, setFoods] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/food")
+    fetch("https://hidden-plains-01721.herokuapp.com/food")
       .then((res) => res.json())
       .then((data) => setFoods(data));
   }, []);
