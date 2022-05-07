@@ -18,7 +18,9 @@ const AddFood = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        toast.success("food added successfully!");
+        toast("food added successfully!", {
+          position: toast.POSITION.TOP_CENTER,
+        });
         e.target.reset();
       });
   };
