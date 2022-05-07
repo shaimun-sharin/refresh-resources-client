@@ -1,11 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AddFood = () => {
-  const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data, e) => {
     console.log(data);
@@ -20,11 +19,10 @@ const AddFood = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        toast("food added successfully!", {
+        toast("food added successfully!Check inventory", {
           position: toast.POSITION.TOP_CENTER,
         });
         e.target.reset();
-        navigate("/manageInventory");
       });
   };
 
@@ -58,8 +56,10 @@ const AddFood = () => {
         <input
           className="mb-4"
           placeholder="Quantity"
-          type="number"
-          {...register("quantity")}
+          type="Number"
+          {...register("quantity", {
+            valueAsNumber: true,
+          })}
         />
         <input
           className="mb-4"
