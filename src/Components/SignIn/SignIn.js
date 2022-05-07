@@ -12,6 +12,7 @@ import "./SignIn.css";
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
 import Socials from "../Socials/Socials";
+import axios from "axios";
 const SignIn = () => {
   const navigate = useNavigate();
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -24,7 +25,7 @@ const SignIn = () => {
   const passRef = useRef("");
   let from = location.state?.from?.pathname || "/";
   if (user) {
-    navigate(from, { replace: true });
+    // navigate(from, { replace: true });
   }
   if (loading || sending) {
     return <Loading></Loading>;
@@ -37,11 +38,14 @@ const SignIn = () => {
     );
   }
 
-  const handleSignIn = (event) => {
+  const handleSignIn = async (event) => {
     event.preventDefault();
     const email = emailRef.current.value;
     const password = passRef.current.value;
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post("http://localhost:5000/login", { email });
+    localStorage.setItem("accessToken", data.accessToken);
+    navigate(from, { replace: true });
   };
   const resetPassword = async () => {
     const email = emailRef.current.value;

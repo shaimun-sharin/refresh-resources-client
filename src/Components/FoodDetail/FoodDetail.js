@@ -10,6 +10,23 @@ const FoodDetail = () => {
       .then((res) => res.json())
       .then((data) => setFood(data));
   });
+
+  const handleQuantity = () => {
+    const quantity = parseInt(food.quantity);
+    console.log(quantity);
+    const newQuantity = quantity - 1;
+    console.log(newQuantity);
+    // const url = `http://localhost:5000/food/${id}`;
+    // fetch(url, {
+    //   method: "PUT",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(newQuantity),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data));
+  };
   return (
     <div>
       <div style={{ width: "18rem" }} class="card  mx-auto">
@@ -25,7 +42,9 @@ const FoodDetail = () => {
           <p class="card-text">Description-{food.description}</p>
 
           <h6 class="card-text">Supplier Name-{food.supplierName}</h6>
-          <button className="btn btn-danger">Delivered</button>
+          <button onClick={handleQuantity} className="btn btn-danger">
+            Delivered
+          </button>
         </div>
       </div>
     </div>
