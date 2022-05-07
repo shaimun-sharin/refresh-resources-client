@@ -1,9 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddFood = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = (data, e) => {
     console.log(data);
     const url = "http://localhost:5000/food";
     fetch(url, {
@@ -16,6 +18,8 @@ const AddFood = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
+        toast.success("food added successfully!");
+        e.target.reset();
       });
   };
 
@@ -70,6 +74,7 @@ const AddFood = () => {
           value="Add Food"
         />
       </form>
+      <ToastContainer />
     </div>
   );
 };

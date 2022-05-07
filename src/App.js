@@ -42,6 +42,7 @@ function App() {
         <Route path="/signIn" element={<SignIn></SignIn>}></Route>
         <Route path="/signUp" element={<SignUp></SignUp>}></Route>
         <Route path="/myItems" element={<MyItems></MyItems>}></Route>
+
         <Route
           path="/manageInventory"
           element={
