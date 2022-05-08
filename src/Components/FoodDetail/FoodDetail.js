@@ -10,10 +10,11 @@ const FoodDetail = () => {
       .then((res) => res.json())
       .then((data) => setFood(data));
   });
-
+  const [quanity, setQuantity] = useState(food.quanity);
   const handleQuantity = () => {
     const quantity = parseInt(food.quantity);
-    console.log(quantity);
+
+    if (quanity) console.log(quantity);
     const newQuantity = quantity - 1;
     console.log(newQuantity);
     // const url = `http://localhost:5000/food/${id}`;
