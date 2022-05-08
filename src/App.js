@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import AddFood from "./Components/AddFood/AddFood";
 import Admins from "./Components/Admins/Admins";
+import Blogs from "./Components/Blogs/Blogs";
 import FoodDetail from "./Components/FoodDetail/FoodDetail";
 import Footer from "./Components/Footer/Footer";
 import Home from "./Components/Home/Home";
@@ -47,6 +48,7 @@ function App() {
         <Route path="/whyChoose" element={<WhyChoose></WhyChoose>}></Route>
         <Route path="/admins" element={<Admins></Admins>}></Route>
         <Route path="/myItems" element={<MyItems></MyItems>}></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
 
         <Route
           path="/manageInventory"

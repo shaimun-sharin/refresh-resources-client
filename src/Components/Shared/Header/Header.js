@@ -64,6 +64,12 @@ const Header = () => {
                   Sign In
                 </Nav.Link>
               )}
+              <Nav.Link as={Link} to="/blogs">
+                Blogs
+              </Nav.Link>
+              <Nav.Link as={Link} to="/admins">
+                Admins
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
