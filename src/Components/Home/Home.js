@@ -4,6 +4,7 @@ import auth from "../../firebase.init";
 import Banner from "../Banner/Banner";
 import Foods from "../Foods/Foods";
 import Loading from "../Loading/Loading";
+import WhyChoose from "../WhyChoose/WhyChoose";
 
 const Home = () => {
   // const [user, loading] = useAuthState(auth);
@@ -21,6 +22,7 @@ const Home = () => {
           Manage Inventory
         </Link>
       </button>
+      <WhyChoose></WhyChoose>
     </div>
   );
 };

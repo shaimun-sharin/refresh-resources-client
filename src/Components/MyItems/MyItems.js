@@ -3,9 +3,13 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import axios from "axios";
 import { Table } from "react-bootstrap";
+import Loading from "../Loading/Loading";
 
 const MyItems = () => {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
+  if (loading) {
+    <Loading></Loading>;
+  }
 
   const [items, setItems] = useState([]);
 

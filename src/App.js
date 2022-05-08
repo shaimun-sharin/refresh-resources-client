@@ -13,6 +13,7 @@ import RequireAuth from "./Components/RequireAuth/RequireAuth";
 import Header from "./Components/Shared/Header/Header";
 import SignIn from "./Components/SignIn/SignIn";
 import SignUp from "./Components/SignUp/SignUp";
+import WhyChoose from "./Components/WhyChoose/WhyChoose";
 // const auth = getAuth(app);
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         ></Route>
         <Route path="/signIn" element={<SignIn></SignIn>}></Route>
         <Route path="/signUp" element={<SignUp></SignUp>}></Route>
+        <Route path="/whyChoose" element={<WhyChoose></WhyChoose>}></Route>
         <Route path="/myItems" element={<MyItems></MyItems>}></Route>
 
         <Route
