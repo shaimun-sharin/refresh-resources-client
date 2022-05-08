@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const FoodDetail = () => {
   const { id } = useParams();
@@ -10,24 +10,7 @@ const FoodDetail = () => {
       .then((res) => res.json())
       .then((data) => setFood(data));
   });
-  const [quanity, setQuantity] = useState(food.quanity);
-  const handleQuantity = () => {
-    const quantity = parseInt(food.quantity);
 
-    if (quanity) console.log(quantity);
-    const newQuantity = quantity - 1;
-    console.log(newQuantity);
-    // const url = `http://localhost:5000/food/${id}`;
-    // fetch(url, {
-    //   method: "PUT",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(newQuantity),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data));
-  };
   return (
     <div>
       <div style={{ width: "18rem" }} class="card  mx-auto">
@@ -43,11 +26,14 @@ const FoodDetail = () => {
           <p class="card-text">Description-{food.description}</p>
 
           <h6 class="card-text">Supplier Name-{food.supplierName}</h6>
-          <button onClick={handleQuantity} className="btn btn-danger">
-            Delivered
-          </button>
+          <button className="btn btn-danger">Delivered</button>
         </div>
       </div>
+      <button className="btn btn- d-block w-25 mt-4 m-auto">
+        <Link className="text-decoration-none text-white" to="/manageInventory">
+          Manage Inventory
+        </Link>
+      </button>
     </div>
   );
 };
