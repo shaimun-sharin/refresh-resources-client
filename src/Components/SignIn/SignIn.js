@@ -56,7 +56,7 @@ const SignIn = () => {
     }
   };
   return (
-    <div className="signIn-form animate__animated animate__backInUp  w-50 mx-auto">
+    <div className="container signIn-form animate__animated animate__backInUp  w-50 mx-auto">
       <div>
         <h1 className="text-info text-center">Use Credintials to Sign In</h1>
       </div>

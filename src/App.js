@@ -4,6 +4,7 @@ import "./App.css";
 import AddFood from "./Components/AddFood/AddFood";
 import Admins from "./Components/Admins/Admins";
 import FoodDetail from "./Components/FoodDetail/FoodDetail";
+import Footer from "./Components/Footer/Footer";
 import Home from "./Components/Home/Home";
 import Manageinventory from "./Components/ManageInventory/Manageinventory";
 import MyItems from "./Components/MyItems/MyItems";
@@ -57,7 +58,7 @@ function App() {
         ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
-      ;
+      <Footer></Footer>;
     </div>
   );
 }
