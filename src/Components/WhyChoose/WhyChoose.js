@@ -9,7 +9,7 @@ import "./WhyChoose.css";
 
 const WhyChoose = () => {
   return (
-    <div className="choose">
+    <div className="choose mb-4">
       <div className=" container text-center">
         <h1 className="text-white">Why Choose us</h1>
         <div>

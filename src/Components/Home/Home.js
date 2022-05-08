@@ -1,18 +1,10 @@
-import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
-import auth from "../../firebase.init";
 import Banner from "../Banner/Banner";
 import Foods from "../Foods/Foods";
-import Loading from "../Loading/Loading";
 import WhyChoose from "../WhyChoose/WhyChoose";
+import { Link } from "react-router-dom";
+import Admins from "../Admins/Admins";
 
 const Home = () => {
-  // const [user, loading] = useAuthState(auth);
-  // if (loading) {
-  //   return <Loading></Loading>;
-  // }
-  // console.log(user.email);
-
   return (
     <div id="home">
       <Banner></Banner>
@@ -23,6 +15,7 @@ const Home = () => {
         </Link>
       </button>
       <WhyChoose></WhyChoose>
+      <Admins></Admins>
     </div>
   );
 };

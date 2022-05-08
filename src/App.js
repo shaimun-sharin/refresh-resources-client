@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import AddFood from "./Components/AddFood/AddFood";
+import Admins from "./Components/Admins/Admins";
 import FoodDetail from "./Components/FoodDetail/FoodDetail";
 import Home from "./Components/Home/Home";
 import Manageinventory from "./Components/ManageInventory/Manageinventory";
@@ -43,6 +44,7 @@ function App() {
         <Route path="/signIn" element={<SignIn></SignIn>}></Route>
         <Route path="/signUp" element={<SignUp></SignUp>}></Route>
         <Route path="/whyChoose" element={<WhyChoose></WhyChoose>}></Route>
+        <Route path="/admins" element={<Admins></Admins>}></Route>
         <Route path="/myItems" element={<MyItems></MyItems>}></Route>
 
         <Route
