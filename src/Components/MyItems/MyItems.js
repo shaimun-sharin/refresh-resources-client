@@ -41,8 +41,8 @@ const MyItems = () => {
     <div>
       <div>
         <h2 className="text-white"> You have added {items.length} items . </h2>
-        <Table className="table-success container">
-          <thead>
+        <Table className="table-success container" bordered>
+          <thead className="text-center">
             <tr>
               <th>Name</th>
 
@@ -50,7 +50,7 @@ const MyItems = () => {
               <th>Delete</th>
             </tr>
           </thead>
-          <tbody className="table-success">
+          <tbody className="text-center">
             {items.map((item) => (
               <tr>
                 <td>
