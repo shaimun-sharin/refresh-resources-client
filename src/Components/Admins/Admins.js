@@ -5,7 +5,7 @@ import "./Admins.css";
 const Admins = () => {
   const [admins, setAdmins] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/admin")
+    fetch("https://hidden-plains-01721.herokuapp.com/admin")
       .then((res) => res.json())
       .then((data) => setAdmins(data));
   }, []);
