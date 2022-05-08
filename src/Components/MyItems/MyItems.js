@@ -5,18 +5,20 @@ import axios from "axios";
 import { Table } from "react-bootstrap";
 
 const MyItems = () => {
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   const [items, setItems] = useState([]);
-  if (loading) {
-    <p className="text-white">loading..</p>;
-  }
+
   useEffect(() => {
     const getItems = async () => {
       const email = user?.email;
       console.log(email);
       const url = `https://hidden-plains-01721.herokuapp.com/item?email=${email}`;
-      const { data } = await axios.get(url);
+      const { data } = await axios.get(url, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      });
       setItems(data);
     };
     getItems();
@@ -65,7 +67,7 @@ const MyItems = () => {
                     onClick={() => handleDelete(item._id)}
                     className="btn btn-danger btn-sm d-block mx-auto"
                   >
-                    delete
+                    Delete item
                   </button>
                 </td>
               </tr>

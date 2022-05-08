@@ -25,7 +25,7 @@ const SignIn = () => {
   const passRef = useRef("");
   let from = location.state?.from?.pathname || "/";
   if (user) {
-    // navigate(from, { replace: true });
+    navigate(from, { replace: true });
   }
   if (loading || sending) {
     return <Loading></Loading>;
@@ -45,7 +45,6 @@ const SignIn = () => {
     await signInWithEmailAndPassword(email, password);
     const { data } = await axios.post("http://localhost:5000/login", { email });
     localStorage.setItem("accessToken", data.accessToken);
-    navigate(from, { replace: true });
   };
   const resetPassword = async () => {
     const email = emailRef.current.value;
