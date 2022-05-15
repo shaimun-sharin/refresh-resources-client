@@ -56,10 +56,8 @@ const AddFood = () => {
         <input
           className="mb-4"
           placeholder="Quantity"
-          type="Number"
-          {...register("quantity", {
-            valueAsNumber: true,
-          })}
+          type="text"
+          {...register("quantity")}
         />
         <input
           className="mb-4"
